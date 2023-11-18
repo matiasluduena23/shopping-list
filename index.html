@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    
+      <main>
+        <h1>Shopping List</h1>
+        <form >
+          <input type="text" id="add-item">
+          <button id="btn-add-item">Add Item</button>
+        </form>
+        <div class="-wrap-filter">
+          <input type="text" id="filter" placeholder="Filter Item" onfocus="this.placeholder=''" onblur="this.placeholder='Filter Item'">
+        </div>
+        <ul class="list-items">
+     
+        </ul>
+        <button id="clear">Clear</button>
+      </main>
+      
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

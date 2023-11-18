@@ -1,0 +1,120 @@
+*,*::after,*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #898888;
+  
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  font-weight: 400;
+  color: #242424;
+  font-size: 16px;
+  margin-top: 7rem;
+}
+
+main {
+  width: 500px;
+}
+input, button {
+  font-size: inherit;
+  font-family: inherit;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #242424;
+}
+
+input {
+  width: 100%;
+  display: block;
+  padding: 0.6rem;
+  background-color: #bdbdbd;
+  border: none;
+  border-radius: 3px;
+  margin-block: 0.5rem;
+  height: 45px;
+}
+
+#filter {
+  background-color: #898888;
+  color: #242424;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #242424;
+  border-radius: 0px; 
+  display: none;
+}
+
+input::placeholder {
+  letter-spacing: 1px;
+  color: #242424; 
+}
+
+button {
+  background-color: #f4f4f4;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  margin-block: 0.5rem 1rem;
+}
+
+button:hover {
+  background-color: #bdbdbd;
+}
+
+ul {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.7rem;
+}
+
+li {
+  list-style: none;
+  border-radius: 5px;
+  border: 1px solid #242424;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 0.7rem;
+  height: 45px;
+}
+
+.list-items p {
+ font-size: 18px;
+ font-weight: 500;
+ text-transform: capitalize;
+}
+
+
+i {
+  cursor: pointer;
+  font-style: normal;  
+  font-weight: 700;
+  color: rgb(177, 14, 14);
+}
+
+#clear {
+  width: 100%;
+  margin-top: 2rem;
+  background-color: #898888;
+  border: 1px solid #242424;
+  display: none;
+}
+
+#clear:hover {
+  background-color: #6f6f6f;
+}
