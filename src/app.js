@@ -1,38 +1,78 @@
 const inputItem = document.querySelector('#add-item')
 const inputFilter = document.querySelector('#filter')
-const btnAddItem = document.querySelector('#btn-add-item')
+const formAddItem = document.querySelector('#form-add-item')
 const btnClear = document.querySelector('#clear')
 const listItems = document.querySelector('.list-items')
 
 
-btnAddItem.addEventListener('click', addItemToList)
+
 
 
 function addItemToList(e) {
     e.preventDefault();
    const li = document.createElement('li');
    const p = document.createElement('p');
-   const i = document.createElement('i');
+   const button = createDeleteBtn('delete-icon')
     
-   if(inputItem.value.trim() !== ''){
-    li.append(p);
-    li.append(i)
-    i.append('X')
-    p.append(inputItem.value);
-    listItems.append(li);
-    clearInputItem();
-    showFilterClear();
+   if(inputItem.value.trim() === ''){
+    showError();
+    return;
    }
+   li.append(p);
+   li.append(button);
+   p.append(inputItem.value);
+   listItems.append(li);
+   inputItem.value = "";
+   resetUI();
+}
 
+// Validate input add item
+function showError() {
+    formAddItem.classList.add('show-error');
+}
+
+function clearError() {
+    formAddItem.classList.remove('show-error');
 }
 
 
-function clearInputItem(){
-    inputItem.value = "";
+function createDeleteBtn(classes) {
+    const button = document.createElement('button');
+    button.className = classes;
+    button.append('X')
+    return button;
 }
 
 
-function showFilterClear(){
-    inputFilter.style.display = 'block'
-    btnClear.style.display = 'block'
+function resetUI(){
+    const items = listItems.querySelectorAll('li');
+    
+    items.length > 0 ?
+    (inputFilter.style.display = 'block',
+    btnClear.style.display = 'block')
+    :
+    (inputFilter.style.display = 'none',
+    btnClear.style.display = 'none')
 }
+
+function clearList() {
+    while(listItems.firstChild){
+        listItems.firstChild.remove()
+    }
+    resetUI()
+}
+
+function removeItem(e){
+    if(e.target.classList.contains('delete-icon')){
+        const item = e.target.previousElementSibling.innerText;
+        confirm(`Are you sure you want to delete "${item}"?`) && e.target.parentElement.remove();
+
+    }
+    resetUI();
+}
+
+
+// Events listeners
+formAddItem.addEventListener('submit', addItemToList)
+btnClear.addEventListener('click', clearList)
+listItems.addEventListener('click', removeItem)
