@@ -7,7 +7,7 @@
 :root {
 
   --bg-color: #b8b7b7;
-  --color: rgba(45, 45, 45, 0.87);
+  --dark-color: rgba(45, 45, 45, 0.87);
   --light-gray: #dedddd; 
   --red-error: rgb(251, 30, 30);
 
@@ -85,9 +85,19 @@ input {
 }
 
 #btn-add-item:hover {
-  background-color: var(--color);
+  background-color: var(--dark-color);
   color: var(--light-gray);
 }
+
+#btn-add-item.btn-edit {
+  background-color: rgb(13, 146, 13);
+  color: var(--light-gray);
+}
+
+#btn-add-item.btn-edit:hover {
+  opacity: 0.8;
+}
+
 
 .error-message {
   color: var(--red-error);
@@ -130,10 +140,12 @@ li {
  font-size: 18px;
  font-weight: 500;
  text-transform: capitalize;
+    cursor: pointer;
 }
 
-
-
+.show-edit {
+  background-color: #dedddd;
+}
 
 #clear {
   width: 100%;
